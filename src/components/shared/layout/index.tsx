@@ -39,7 +39,7 @@ export const Layout = () => {
                     >
                       <Avatar className="h-9 w-9">
                         <AvatarImage
-                          src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/79/79526e939bec9a58c5bdb3dce76c525ca7a1d344_full.jpg"
+                          src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/ba/baadb39eba429eb7f367f623ce8d31b45c7fa04a_full.jpg"
                           alt="Faris Perwira"
                         />
                         <AvatarFallback>U</AvatarFallback>

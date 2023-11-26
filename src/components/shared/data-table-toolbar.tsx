@@ -7,14 +7,12 @@ import { DataTableViewOptions } from "./data-table-view-options";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
-  addAction?: () => void;
-  addLabel?: string;
+  AddButton?: () => JSX.Element;
 }
 
 export function DataTableToolbar<TData>({
   table,
-  addAction,
-  addLabel,
+  AddButton,
 }: DataTableToolbarProps<TData>) {
   return (
     <div className="flex items-center justify-between">
@@ -29,16 +27,7 @@ export function DataTableToolbar<TData>({
         />
         <DataTableViewOptions table={table} />
       </div>
-      {addAction ? (
-        <Button
-          size="sm"
-          className="ml-auto hidden h-8 lg:flex"
-          onClick={addAction}
-        >
-          <PlusCircledIcon className="mr-2 h-4 w-4" />
-          {addLabel || "Add"}
-        </Button>
-      ) : null}
+      {AddButton ? <AddButton /> : null}
     </div>
   );
 }

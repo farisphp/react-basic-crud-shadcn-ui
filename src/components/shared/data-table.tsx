@@ -40,14 +40,12 @@ export function DataTable<TData, TValue>({
   pagination,
   pageCount,
   onPaginationChange,
-  addAction,
-  addLabel,
+  AddButton,
 }: DataTableProps<TData, TValue> & {
   pagination: PaginationState;
   pageCount: number;
   onPaginationChange: OnChangeFn<PaginationState>;
-  addAction?: () => void;
-  addLabel?: string;
+  AddButton?: () => JSX.Element;
 }) {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
@@ -82,11 +80,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar
-        table={table}
-        addAction={addAction}
-        addLabel={addLabel}
-      />
+      <DataTableToolbar table={table} AddButton={AddButton} />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
