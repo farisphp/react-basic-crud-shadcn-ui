@@ -13,6 +13,8 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
+  OnChangeFn,
+  PaginationState,
 } from "@tanstack/react-table";
 
 import {
@@ -35,9 +37,18 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
+  pagination,
+  pageCount,
+  onPaginationChange,
   addAction,
-}: DataTableProps<TData, TValue> & { addAction?: () => void }) {
-  const [rowSelection, setRowSelection] = React.useState({});
+  addLabel,
+}: DataTableProps<TData, TValue> & {
+  pagination: PaginationState;
+  pageCount: number;
+  onPaginationChange: OnChangeFn<PaginationState>;
+  addAction?: () => void;
+  addLabel?: string;
+}) {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -48,14 +59,16 @@ export function DataTable<TData, TValue>({
   const table = useReactTable({
     data,
     columns,
+    pageCount,
     state: {
       sorting,
       columnVisibility,
-      rowSelection,
       columnFilters,
+      pagination,
     },
+    manualPagination: true,
     enableRowSelection: true,
-    onRowSelectionChange: setRowSelection,
+    onPaginationChange,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
@@ -69,7 +82,11 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} addAction={addAction} />
+      <DataTableToolbar
+        table={table}
+        addAction={addAction}
+        addLabel={addLabel}
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>

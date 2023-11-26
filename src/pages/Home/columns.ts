@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { ColumnDef } from "@tanstack/react-table";
 
 export type User = {
@@ -36,7 +37,9 @@ export const columns: ColumnDef<User>[] = [
     header: "Email",
   },
   {
-    accessorKey: "created_at",
     header: "Created at",
+    accessorFn: (row) => {
+      return format(new Date(row.created_at), "MMM dd, yyyy");
+    },
   },
 ];
