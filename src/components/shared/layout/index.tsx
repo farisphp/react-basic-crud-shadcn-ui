@@ -1,3 +1,4 @@
+import { useCookies } from "react-cookie";
 import { Outlet } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -12,8 +13,10 @@ import {
 
 import { ThemeProvider } from "./theme-provider";
 import { ThemeToggle } from "./theme-toggle";
+import { logout } from "./queries";
 
 export const Layout = () => {
+  const [_cookies, _setCookies, removeCookie] = useCookies();
   const queryClient = new QueryClient();
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
@@ -47,7 +50,14 @@ export const Layout = () => {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-56" align="end" forceMount>
-                    <DropdownMenuItem>Log out</DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={async () => {
+                        await logout();
+                        removeCookie("accessToken");
+                      }}
+                    >
+                      Log out
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
