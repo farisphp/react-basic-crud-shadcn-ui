@@ -1,6 +1,9 @@
 import { format } from "date-fns";
 import { ColumnDef } from "@tanstack/react-table";
 
+import EditUser from "./EditUser";
+import DeleteUser from "./DeleteUser";
+
 export type User = {
   id: string;
   name: string;
@@ -40,6 +43,20 @@ export const columns: ColumnDef<User>[] = [
     header: "Created at",
     accessorFn: (row) => {
       return format(new Date(row.created_at), "MMM dd, yyyy");
+    },
+  },
+  {
+    header: "Action",
+    accessorFn: (row) => {
+      return row;
+    },
+    cell: ({ row }) => {
+      return (
+        <div className="space-x-2">
+          <EditUser {...row.original} />
+          <DeleteUser {...row.original} />
+        </div>
+      );
     },
   },
 ];

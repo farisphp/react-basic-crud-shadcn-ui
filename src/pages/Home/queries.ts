@@ -20,3 +20,24 @@ export const createUser = async (body: z.infer<typeof userFormSchema>) => {
     return handleRequestError(error);
   }
 };
+
+export const updateUser = async (
+  props: z.infer<typeof userFormSchema> & { id: string }
+) => {
+  const { id, ...body } = props;
+  try {
+    const { data } = await api.put(`/users/${id}`, body);
+    return data;
+  } catch (error) {
+    return handleRequestError(error);
+  }
+};
+
+export const deleteUser = async (props: { id: string }) => {
+  try {
+    const { data } = await api.delete(`/users/${props.id}`);
+    return data;
+  } catch (error) {
+    return handleRequestError(error);
+  }
+};
