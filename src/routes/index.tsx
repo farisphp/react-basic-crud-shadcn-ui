@@ -1,7 +1,8 @@
 import { PropsWithChildren } from "react";
 import { useCookies } from "react-cookie";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import App from "@/pages/Home.tsx";
+import { Layout } from "@/components/shared/layout";
+import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/NotFound.tsx";
 
@@ -18,12 +19,18 @@ const ProtectedRoute = (props: PropsWithChildren) => {
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <App />
-      </ProtectedRoute>
-    ),
+    element: <Layout />,
     errorElement: <NotFound />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/login",

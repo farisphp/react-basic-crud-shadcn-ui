@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 
 import { useLoginForm } from "./form";
 
-function App() {
+function Login() {
   const { form, onSubmit } = useLoginForm();
 
   return (
@@ -80,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
