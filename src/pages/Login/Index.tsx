@@ -56,7 +56,7 @@ function App() {
                     <FormControl>
                       <Input
                         type="password"
-                        placeholder="test@example.com"
+                        placeholder="Enter your password"
                         {...field}
                       />
                     </FormControl>
@@ -66,7 +66,9 @@ function App() {
               />
             </CardContent>
             <CardFooter className="flex-col gap-2">
-              <Button className="w-full">Login</Button>
+              <Button disabled={form.formState.isSubmitting} className="w-full">
+                Login
+              </Button>
               <p className="text-sm font-medium text-destructive">
                 {form.formState.errors.root?.message}
               </p>

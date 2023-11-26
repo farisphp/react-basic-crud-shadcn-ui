@@ -25,7 +25,6 @@ export const useLoginForm = () => {
     }
 
     setCookie("accessToken", res.access_token, { maxAge: res.expires_in });
-    console.log("AFTER SET COOKIE", res);
     return navigate("/");
   }
 

@@ -1,24 +1,11 @@
+import { RouterProvider } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 
-import App from "./App.tsx";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound.tsx";
-import "@/styles/globals.css";
+import { router } from "./routes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-]);
+import "@/styles/globals.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
