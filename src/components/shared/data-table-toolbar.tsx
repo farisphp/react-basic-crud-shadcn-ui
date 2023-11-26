@@ -1,7 +1,5 @@
 import { Table } from "@tanstack/react-table";
-import { PlusCircledIcon } from "@radix-ui/react-icons";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
 

@@ -24,15 +24,6 @@ const DeleteUser = (props: User) => {
       // Invalidate and refetch
       queryClient.invalidateQueries("users");
     },
-    onError: (error) => {
-      if (!error) {
-        return;
-      }
-
-      let errorMsg = "Oops! Something went wrong. Please try again later.";
-      if (typeof error === "object" && "message" in error)
-        errorMsg = error?.message as string;
-    },
   });
 
   return (
