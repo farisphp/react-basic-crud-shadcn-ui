@@ -15,6 +15,9 @@ A React + Vite template powered by shadcn/ui.
 - **PostCSS** - A tool for transforming CSS with JavaScript.
 - **Autoprefixer** - A PostCSS plugin to parse CSS and add vendor prefixes.
 - **shadcn/ui** - Beautifully designed components that you can copy and paste into your apps.
+- **react-query** - Powerful asynchronous state for React.
+- **react-cookies** - Universal cookies for React.
+- **react-router-dom** - Declarative routing for React web applications.
 
 ## ⚙️ Prerequisites
 
@@ -44,8 +47,13 @@ Follow these steps to get started with the react-vite-ui template:
    ```bash
    pnpm install
    ```
+4. Copy .env.example and update the configuration:
 
-4. Start the development server:
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Start the development server:
 
    ```bash
    pnpm dev
@@ -60,8 +68,6 @@ Follow these steps to get started with the react-vite-ui template:
 
 ## 📂 Project Structure
 
-The project structure follows a standard React application layout:
-
 ```python
 react-vite-ui/
   ├── node_modules/      # Project dependencies
@@ -69,10 +75,14 @@ react-vite-ui/
   ├── src/               # Application source code
   │   ├── components/    # React components
   │   │   └── ui/        # shadc/ui components
+  │   │   └── shared/        # shared components
+  │   ├── config/        # Config file
+  │   ├── libs/          # Utility functions
+  │   ├── pages/         # Pages file and relative components/utils
+  │   ├── routes/        # Application routes
+  │   ├── schemas/       # Application form schemas
   │   ├── styles/        # CSS stylesheets
-  │   ├── lib/           # Utility functions
-  │   ├── App.tsx        # Application entry point
-  │   └── index.tsx      # Main rendering file
+  │   └── main.tsx      # Main rendering file
   ├── .eslintrc.json     # ESLint configuration
   ├── index.html         # HTML entry point
   ├── postcss.config.js  # PostCSS configuration
