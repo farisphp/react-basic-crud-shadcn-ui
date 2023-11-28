@@ -2,10 +2,13 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Dan5py/react-vite-ui/blob/main/LICENSE)
 
-A React + Vite template powered by shadcn/ui.
+A React + Vite template powered by shadcn/ui with some basic features.
 
 ## 🎉 Features
+- JWT Authentication
+- Simple CRUD with react-query
 
+## 🙌 Libraries
 - **React** - A JavaScript library for building user interfaces.
 - **Vite** - A fast, opinionated frontend build tool.
 - **TypeScript** - A typed superset of JavaScript that compiles to plain JavaScript.
@@ -15,6 +18,7 @@ A React + Vite template powered by shadcn/ui.
 - **PostCSS** - A tool for transforming CSS with JavaScript.
 - **Autoprefixer** - A PostCSS plugin to parse CSS and add vendor prefixes.
 - **shadcn/ui** - Beautifully designed components that you can copy and paste into your apps.
+- **Axios** - A promise-based HTTP Client.
 - **react-query** - Powerful asynchronous state for React.
 - **react-cookies** - Universal cookies for React.
 - **react-router-dom** - Declarative routing for React web applications.
